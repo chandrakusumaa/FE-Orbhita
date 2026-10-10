@@ -1180,7 +1180,7 @@
 }
 @media (max-width: 680px) {
   .oc-root {
-    min-height: 650px;
+    min-height: 0;
   }
   .oc-sidebar {
     position: absolute;
@@ -1376,27 +1376,30 @@
   min-height: 0;
 }
 .oc-main {
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  overflow: hidden;
+  min-height: 0;
 }
 .oc-topbar {
   position: sticky;
   top: 0;
   background: #fff;
   z-index: 9;
+  flex-shrink: 0;
 }
 .oc-calendar-zone {
-  flex: 0 0 auto;
+  flex: 1;
+  min-height: 0;
   padding-top: 26px;
 }
 .oc-calendar-scroll {
-  flex: none;
+  flex: 1;
+  min-height: 0;
   overflow: auto;
-  max-height: 660px;
+  max-height: none;
 }
 .oc-month-grid {
   width: max(100%, calc(100% * var(--calendar-zoom)));
-  height: calc(380px * var(--calendar-zoom));
+  height: calc(100% * var(--calendar-zoom));
   min-height: 285px;
 }
 .oc-month-cells {
@@ -1651,7 +1654,7 @@
     width: 32px;
   }
   .oc-month-grid {
-    height: calc(330px * var(--calendar-zoom));
+    height: calc(100% * var(--calendar-zoom));
     min-height: 248px;
     width: max(100%, calc(100% * var(--calendar-zoom)));
   }
@@ -1831,7 +1834,7 @@
 }
 @media (min-width: 681px) and (max-height: 750px) {
   .oc-month-grid {
-    height: calc(320px * var(--calendar-zoom));
+    height: calc(100% * var(--calendar-zoom));
   }
   .oc-chat-top p > span {
     display: block;
@@ -1991,4 +1994,17 @@
 }
 .orb-landing .orb-landing-logo img {
   opacity: 0.8 !important;
+}
+
+@media (max-width: 480px) {
+  .orb-landing .orb-landing-logo {
+    font-size: 40px !important;
+    letter-spacing: -1px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .orb-landing .orb-landing-logo {
+    font-size: 32px !important;
+  }
 }
